@@ -1,14 +1,16 @@
+
+
 <div class="container" ng-init="loadAllToDos()">
 
 
 <div class="row">
     <h1>Tasks page</h1>
-        <div class="col s12 m6" ng-repeat="task in taskList">
+        <div class="col s12 m6" ng-repeat="task in ToDoInfo">
           <div class="card indigo darken-4">
             <div class="card-content white-text">
-              <span class="card-title">{{task.Name}}</span>
-              <p>Task description: {{task.Description}}</p>
-              <p>Task status: {{task.Status}}</p>
+              <h1><span class="card-title">{{task.name}}</span></h1>
+              <p>Task description: {{task.description}}</p>
+              <p>Task status: {{task.status}}</p>
             </div>
          <!--    <div class="card-action">
          <button class="btn yellow accent-2" ng-click="loadAllCustomers()"><span style="color: black">Load customers</span></button>

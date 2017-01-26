@@ -8,10 +8,10 @@ app.factory("ApiCallFactory", ($q, $http, $location, $routeParams) => {
 let getToDos = () => {
     return $q ((resolve, reject) => {
       $http.get(`http://localhost:5000/api/values`)
-      .success((itemObject) => {
-        resolve(itemObject)
+      .then((itemObject) => {
+        resolve(itemObject.data)
       })
-      .error((error) => {
+      .catch((error) => {
         reject(error)
         console.log("error", error)
       })
