@@ -31,23 +31,37 @@ let getToDos = () => {
     });
     };
 
+
+  let toDoByStatus = (id) => {
+    return $q ((resolve, reject) => {
+      $http.get(`http://localhost:5000/api/values/ByStatus/${id}`)
+      .success((itemObject) => {
+        resolve(itemObject);
+      })
+      .error((error) => {
+        reject(error);
+        console.log("error", error)
+      });
+    });
+    };
+
 let postToDo  = (ToDoInfo) => {
   console.log("postToDo is running", ToDoInfo)
     return $q((resolve, reject) => {
        $http.post(`http://localhost:5000/api/values`,
         JSON.stringify(ToDoInfo))
-        .success((ObjFromMyServer) => {
+        .then((ObjFromMyServer) => {
           console.log(ObjFromMyServer);
-          // currentRouteID = ObjFromFirebase.name;
-          // console.log("I'M THE FIREBASE ID I CAN HELP YOU", currentRouteID)
           resolve(ObjFromMyServer);
         })
-        .error ((error) => {
+        .catch ((error) => {
           reject(error);
     })
     })
 
   }
+
+
 
   let putToDo = (ToDoInfo, id) => {
   console.log("putToDo is running", id)

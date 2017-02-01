@@ -1,0 +1,14 @@
+<div class="container">
+
+    <h3>Make your task</h3>
+
+    <form ng-submit="AddNewToDo()">
+      <div class="form-group">
+        <label>Task name</label>
+        <input type="string" class="form-control" placeholder="Name your task" ng-model="ToDoInfo.Name"/>
+        <label>Description</label>
+        <input type="string" class="form-control" placeholder="Describe your task" ng-model="ToDoInfo.Description"/>
+      </div>
+      <button class="btn btn-default">Create task</button>
+    </form>
+</div>
