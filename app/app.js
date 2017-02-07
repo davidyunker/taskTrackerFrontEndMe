@@ -19,6 +19,12 @@ app.config(function($routeProvider) {
             controller: 'ToDoCtrl'
         }).
 
+        when("/edittask/:id", {
+            templateUrl: "partials/edit-task.html",
+            controller: 'ToDoCtrl',
+
+        }).
+
         otherwise("/")
         // way to make sure they don't go anywhere else.
 });

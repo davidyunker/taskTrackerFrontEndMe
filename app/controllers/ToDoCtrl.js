@@ -1,7 +1,7 @@
 "use strict";
 
 
-app.controller("ToDoCtrl", function ($scope, $location, ApiCallFactory) {
+app.controller("ToDoCtrl", function ($scope, $location, ApiCallFactory, $routeParams) {
 
 $scope.ToDoInfo = {
   Id: "",
@@ -17,7 +17,6 @@ $scope.ToDoInfo = {
 // Users should be able to create a new task.
 // Users should be able to update a task's Name, Description and Status.
 // Validation should be performed.
-// Users should be able to view a list of tasks by Priority.
 // Users should be able to view a list of tasks by Status.
 // Users should be able to view a list of tasks by CompletedOn.
 
@@ -31,6 +30,15 @@ $scope.ToDoInfo = {
           })
     }
 
+    $scope.getOneToDo = function() {
+      console.log("getOneToDo is running")
+      console.log($scope.ToDoInfo, "ToDoInfo")
+      ApiCallFactory.getSingleToDo($routeParams)
+        .then(function(data){
+          console.log("data", data);
+        })
+
+ }
 
     $scope.AddNewToDo = function() {
       console.log("AddNewToDo has started")
@@ -59,7 +67,7 @@ $scope.ToDoInfo = {
 
     $scope.EditToDo = function(){
       console.log("EditToDo running")
-      ApiCallFactory.puToDo(ToDoInfo, id)
+      ApiCallFactory.putToDo(ToDoInfo, id)
         .then(function(data){
           console.log("it worked")
           console.log("data", data)

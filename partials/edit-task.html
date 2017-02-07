@@ -1,0 +1,16 @@
+<div class="container" ng-init="getOneToDo()">
+
+
+<form ng-submit="editToDo()">
+      <div class="form-group">
+      <label>Name of task</label>
+        <input type="text" class="form-control" ng-model="ToDoInfo.Name"/>
+        <label>Description</label>
+        <input type="text" class="form-control" ng-model="ToDoInfo.Description"/>
+        <label>Status</label>
+        <input type="text" class="form-control" ng-model="ToDoInfo.Status"/>
+         <label>Completed on</label>
+        <input type="text" class="form-control" ng-model="ToDoInfo.CompletedOn"/>
+      </div>
+      <button class="btn btn-default">Save ToDo</button>
+    </form>
