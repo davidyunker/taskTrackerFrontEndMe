@@ -1,22 +1,21 @@
 "use strict";
 
-// added to .gitIgnore until we get this to work.
 
-app.factory("ApiCallFactory", ($q, $http, $location, $routeParams) => {
+app.factory("ApiCallFactory", ($q, $http, $location) => {
 
 
 let getToDos = () => {
     return $q ((resolve, reject) => {
       $http.get(`http://localhost:5000/api/values`)
-      .then((itemObject) => {
+      .success((itemObject) => {
         resolve(itemObject.data)
       })
-      .catch((error) => {
+      .error((error) => {
         reject(error)
         console.log("error", error)
       })
     })
-    };
+    }
 
   let getSingleToDo = (id) => {
     return $q ((resolve, reject) => {
@@ -27,9 +26,11 @@ let getToDos = () => {
       .error((error) => {
         reject(error);
         console.log("error", error)
-      });
-    });
-    };
+      })
+    })
+    }
+
+     
 
 
   let toDoByStatus = (id) => {
@@ -89,5 +90,5 @@ let postToDo  = (ToDoInfo) => {
     })
   }
 
-return {putToDo, deleteToDo, postToDo, getToDos, getSingleToDo}
+return {putToDo, deleteToDo, postToDo, getToDos, getSingleToDo, putToDo, toDoByStatus}
 })
